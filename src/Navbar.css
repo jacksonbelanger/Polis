@@ -1,0 +1,56 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 30px;
+    height: 70px;
+    background-color: rgba(255, 255, 255); /* semi-transparent white */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* make sure navbar is above the map */
+  }
+  
+  .navbar-title {
+    font-size: 38px;       /* Even larger font size for more prominence */
+    font-weight: 850;      /* A thicker weight, if the font family supports it */
+    letter-spacing: 0px;   /* Slightly increased letter spacing for a modern touch */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+  }
+  
+  .navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-menu li a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar-menu li a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-button {
+    background-color: #DDFFC2;
+    border: none;
+    color: white; /* Text color */
+    padding: 10px 20px !important;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Changes the cursor to a hand when hovering */
+    transition: background-color 0.3s ease; /* Smooth color change on hover */
+  }
+  
+  .contact-button:hover {
+    background-color: #77DD77 !important; /* Darker shade when hovering */
+  }
