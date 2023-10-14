@@ -193,8 +193,8 @@ const Map = () => {
         }
       });
 
-      const district8 = districtsData.features[8].geometry.coordinates[0];
-
+      const district8 = districtsData.features[8].geometry.coordinates[0][0];
+      console.log(districtsData)
       map.addLayer({
         id: 'district8',
         type: 'fill',
@@ -209,7 +209,7 @@ const Map = () => {
           }
         },
         paint: {
-          'fill-color': '#fcba03',  // A different color for differentiation
+          'fill-color': 'yellow',  // A different color for differentiation
           'fill-opacity': 0.4
         }
       });
@@ -256,8 +256,7 @@ const Map = () => {
         }
       });
 
-      const district11 = districtsData.features[11].geometry.coordinates[0];
-
+      const district11 = districtsData.features[11].geometry.coordinates[0][0];
       map.addLayer({
         id: 'district11',
         type: 'fill',
@@ -272,11 +271,10 @@ const Map = () => {
           }
         },
         paint: {
-          'fill-color': '#e3fc03',  // A different color for differentiation
+          'fill-color': 'yellow',  // A different color for differentiation
           'fill-opacity': 0.4
         }
-      });
-
+      })
     });
 
     map.on('move', () => {
