@@ -1,8 +1,0 @@
-.app-container {
-    position: relative;
-  }
-  
-  .map-container {
-    padding-top: 70px; /* Adjust this value based on the height of your navbar to ensure that map starts below navbar */
-    height: calc(100vh - 70px); /* This ensures the map takes up the remaining viewport height */
-  }
