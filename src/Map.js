@@ -5,34 +5,51 @@ import districtsData from "./districts.json";
 
 mapboxgl.accessToken = 'pk.eyJ1IjoieWFudHNlbnRlciIsImEiOiJjbG5wYzY4b2wwYTJmMmlvMTBqYjkyY2VoIn0.95vb98mxkUb4pzEpO_rF0Q';
 
+console.log(districtsData)
+
 const Map = () => {
     const mapContainerRef = useRef(null);
 
     const [lng, setLng] = useState(-84.4);
-    const [lat, setLat] = useState(33.8);
-    const [zoom, setZoom] = useState(10.5);
+    const [lat, setLat] = useState(33.77);
+    const [zoom, setZoom] = useState(11.5);
 
     useEffect(() => {
         const map = new mapboxgl.Map({
             container: mapContainerRef.current,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [lng, lat],
-            zoom: zoom
-        });
+            zoom: zoom,
+            maxBounds: [
+                [-84.4 - 0.33, 33.8 - 0.2], // Southwest coordinates
+                [-84.4 + 0.3, 33.8 + 0.15] // Northeast coordinates
+                ]
+        })
 
         map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
         map.on('load', () => {
             // Colors array for differentiation, add more if required
-            const colors = ['blue', 'red', 'green', 'yellow', 'pink', 'purple', 'black', 'gray', 'yellow', '#4287f5', '#eb4034'];
+            const colors = ['blue', 'red', 'green', 'yellow', '#fa5aef', 'purple', 'black', '#05fc70', '#e07809', '#07deed', 'gray', '#82f202'];
 
             // Iteratively add district layers
             districtsData.features.forEach((feature, index) => {
               let districtCoords = feature.geometry.coordinates;
           
               // If the data has unnecessary nested lists, flatten it by one level.
+              /*
               if (feature.geometry.type === "MultiPolygon" && districtCoords.length === 1) {
                   districtCoords = districtCoords[0];
+              }
+              */
+
+              // exceptions for index 8 and 11 bc formatting is wack for them
+              if (index === 8) {
+                districtCoords = districtCoords[1];
+              }
+
+              if (index === 11) {
+                districtCoords = districtCoords[0];
               }
           
               map.addLayer({
