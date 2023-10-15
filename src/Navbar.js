@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navbar.css';
-import logo from '/Users/jacksonbelanger/Hackgt/Polis/src/polis_logo.png';
-import logo_name from '/Users/jacksonbelanger/Hackgt/Polis/src/polis_logo_name.png';
+import logo from './polis_logo.png';
+import logo_name from './polis_logo_name.png';
 
 
 function Navbar() {
