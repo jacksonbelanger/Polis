@@ -54,3 +54,19 @@
   .contact-button:hover {
     background-color: #77DD77 !important; /* Darker shade when hovering */
   }
+
+  .navbar-logo {
+    max-height: 50px;  /* Adjust to fit within the navbar height */
+    margin-right: 10px; /* Some spacing between the logo and the title */
+    align-self: center; /* Vertical alignment within the flex container */
+}
+
+.logo-container {
+  display: flex;          /* Make it a flex container */
+  align-items: center;    /* Center align items vertically */
+}
+
+.navbar-logo-name {
+  max-height: 50px;
+  align-self: center;
+}
