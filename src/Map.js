@@ -21,8 +21,8 @@ const Map = () => {
             center: [lng, lat],
             zoom: zoom,
             maxBounds: [
-                [-84.4 - 0.33, 33.8 - 0.2], // Southwest coordinates
-                [-84.4 + 0.3, 33.8 + 0.15] // Northeast coordinates
+                [-84.4 - 0.63, 33.8 - 0.5], // Southwest coordinates
+                [-84.4 + 0.5, 33.8 + 0.55] // Northeast coordinates
                 ]
         })
 
@@ -70,28 +70,30 @@ const Map = () => {
                       'fill-opacity': 0.4
                   }
               });
-          });          
 
-            // Create popup but don't attach it yet
-            const popup = new mapboxgl.Popup({
-                closeButton: false,
-                closeOnClick: false
-            });
-
-            map.on('click', (e) => {
-                const features = map.queryRenderedFeatures(e.point, {});
-                const districtFeatures = features.filter(f => f.layer.id.includes('district'));
-
-                if (districtFeatures.length) {
-                    const district = districtFeatures[0];
-                    const districtInfo = district.properties;
-                    popup.setLngLat(e.lngLat)
-                        .setHTML(`<h3>District Info</h3><p>${JSON.stringify(districtInfo)}</p>`)
+              map.on('click', `district${index}`, (e) => {
+                if (e.features.length) {
+    
+                    const councilMember=districtsData.features[index].properties.Council_Member
+                    const districtname=districtsData.features[index].properties.Dist_Name
+                    const area=districtsData.features[index].properties.SQMILES
+                    const photo=districtsData.features[index].properties.Photo
+                    // Create content for the popup based on clicked feature properties
+                    const content = `
+                        <h3><strong>District ${districtname}</strong></h3>
+                        <p><strong>Council Member:</strong> ${councilMember}</p>
+                        <p><strong>Area (in acres):</strong> ${area}</p>
+                        <img src="${photo}" alt="Council Member Photo" width="100" />
+                    `;
+    
+                    new mapboxgl.Popup()
+                        .setLngLat(e.lngLat)
+                        .setHTML(content)
                         .addTo(map);
-                } else {
-                    popup.remove();
                 }
-            });
+                });
+
+            });          
         });
 
         map.on('move', () => {
