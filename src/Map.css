@@ -9,12 +9,31 @@
 .sidebarStyle {
   display: inline-block;
   position: absolute;
-  top: 0;
+  top: 80px;
   left: 0;
   margin: 12px;
-  background-color: #404040;
-  color: #ffffff;
+  color: #404040;
   z-index: 1 !important;
   padding: 6px;
   font-weight: bold;
+}
+
+.button-container button {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* No border */
+  color: white; /* White text */
+  padding: 15px 32px; /* Top and bottom padding, Left and right padding */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Inline block display */
+  font-size: 16px; /* Font size */
+  margin: 4px 2px; /* Margin around the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Box shadow for 3D effect */
+  transition-duration: 0.4s; /* Transition effect when hovering */
+}
+
+.button-container button:hover {
+  background-color: #45a049; /* Darker green background on hover */
 }
