@@ -1,10 +1,16 @@
 import React from 'react';
 import './Navbar.css';
+import logo from './polis_logo.png';
+import logo_name from './polis_logo_name.png';
+
 
 function Navbar() {
   return (
     <div className="navbar">
-      <h1 className="navbar-title">Polis</h1>
+      <div className="logo-container">
+        <img src={logo} alt="Polis Logo" className="navbar-logo" />
+        <img src={logo_name} alt="Polis Logo Name" className="navbar-logo-name" />
+    </div>
       <ul className="navbar-menu">
         <li><a href="/about">About Us</a></li>
         <li><a href="/officials">Political Officials</a></li>
